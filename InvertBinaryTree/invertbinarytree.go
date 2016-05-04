@@ -4,14 +4,6 @@ import (
 	binaryTree "github.com/liutianyi1989/leetcode/BinaryTree"
 )
 
-/**
- * Definition for a binary tree node.
- * 二叉树定义
- */
-type TreeNode struct {
-	binaryTree.TreeNode
-}
-
 func invertTree(root *binaryTree.TreeNode) *binaryTree.TreeNode {
 	if root == nil {
 		return nil
