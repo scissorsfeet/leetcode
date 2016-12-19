@@ -2,7 +2,7 @@ package IslandPerimeter
 
 /*
 You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water.
-一个二维表格，其中1表示陆地，0表示海水
+一个二维表格，其中1表示陆地，0表示海水.
 Grid cells are connected horizontally/vertically (not diagonally).
 每个格子水平\垂直相连，对角不算相连
 The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells).

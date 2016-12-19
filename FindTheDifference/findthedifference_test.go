@@ -19,7 +19,7 @@ func TestB(t *testing.T) {
 
     differ := findthedifference(s, q)
     if differ != "a"{
-        t.Error("wrong")
+        t.Error("fail")
     }else{
         t.Log("succ")
     }
