@@ -1,0 +1,5 @@
+*.name
+.idea/compiler.xml
+*.iml
+.idea/workspace.xml
+*.xml
