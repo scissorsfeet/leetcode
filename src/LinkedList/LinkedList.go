@@ -1,4 +1,4 @@
-package src
+package LinkedList
 import (
     "fmt"
     "strings"
