@@ -36,7 +36,7 @@ func NewLinkedList(head *ListNode) *LinkedList {
 //通过数据创建链表
 func CreateListByArray(items []int) *LinkedList {
     if len(items) <= 0 {
-        return nil
+        return &LinkedList{Head:&ListNode{}}
     }
 
     head := NewListNode(0, nil)
