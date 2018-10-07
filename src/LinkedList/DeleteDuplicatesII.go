@@ -14,7 +14,34 @@ package LinkedList
 */
 
 func deleteDuplicatesII(head *ListNode) *ListNode {
+    helper := &ListNode{Next:head}
 
+    pre := helper
+    cur := helper.Next
 
-    return head
+    var repeatTimes = 0
+    for nil != cur && nil != cur.Next {
+        if cur.Val != cur.Next.Val {//值不等
+            if repeatTimes > 0 {
+                pre.Next = cur.Next
+                repeatTimes = 0
+            } else {
+                pre = cur
+            }
+        } else {
+            repeatTimes++
+        }
+        cur = cur.Next
+    }
+
+    //收个尾
+    if nil != cur {
+        if repeatTimes > 0 {
+            pre.Next = nil
+        } else {
+            pre.Next = cur
+        }
+    }
+
+    return helper.Next
 }
