@@ -6,47 +6,33 @@ type Item struct {
 	index int
 }
 
+/**
+ 时间复杂度:O(N)
+ 空间复杂度:O(N)
+*/
 func dailyTemperatures(temperatures []int) []int {
 	if len(temperatures) == 0 {
 		return temperatures
 	}
 
 	stack := NewArrayStack()
-	assist := NewArrayStack()
 	result := make([]int, len(temperatures))
 	for i, temperature := range temperatures {
 		top := stack.Top()
 		if nil != top {
 			iTop := top.(*Item)
-			if iTop.val < temperature {
-				for iTop.val < temperature {
-					stack.Pop()
-					assist.Push(iTop)
-					if !stack.IsEmpty() {
-						stack.Top().(*Item).shiftDays += iTop.shiftDays
-						iTop = stack.Top().(*Item)
-					} else {
-						break
-					}
-				}
-			} else {
-				assist.Print()
-				for !assist.IsEmpty() {
-					result = append(result, assist.Pop().(*Item).shiftDays)
+			for iTop.val < temperature {
+				stack.Pop()
+				result[iTop.index] = iTop.shiftDays
+				if !stack.IsEmpty() {
+					stack.Top().(*Item).shiftDays += iTop.shiftDays
+					iTop = stack.Top().(*Item)
+				} else {
+					break
 				}
 			}
 		}
 		stack.Push(&Item{temperature, 1, i})
-	}
-
-	for !assist.IsEmpty() {
-		top := assist.Pop().(*Item)
-		result[top.index] = top.shiftDays
-	}
-
-	for !stack.IsEmpty() {
-		top := stack.Pop().(*Item)
-		result[top.index] = 0
 	}
 
 	return result
