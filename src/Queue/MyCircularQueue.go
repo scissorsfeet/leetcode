@@ -1,17 +1,16 @@
 package Queue
 
-import "fmt"
-
 type MyCircularQueue struct {
 	q []int
 	capacity int
 	head int
 	tail int
+	size int
 }
 
 
 /** Initialize your data structure here. Set the size of the queue to be k. */
-func Constructor(k int) MyCircularQueue {
+func NewMyCircularQueue(k int) MyCircularQueue {
 	if k <= 0 {
 		return MyCircularQueue{}
 	}
@@ -27,6 +26,7 @@ func (this *MyCircularQueue) EnQueue(value int) bool {
 	}
 	this.q[this.tail] = value
 	this.tail = (this.tail+1)%this.capacity
+	this.size++
 	return true
 }
 
@@ -37,6 +37,7 @@ func (this *MyCircularQueue) DeQueue() bool {
 		return false
 	}
 	this.head = (this.head+1)%this.capacity
+	this.size--
 	return true
 }
 
@@ -56,7 +57,6 @@ func (this *MyCircularQueue) Front() int {
 	if this.IsEmpty() {
 		return ^int(^uint(0)>>1)
 	}
-	fmt.Println(this.q, this.head, this.tail)
 	return this.q[this.head]
 }
 
