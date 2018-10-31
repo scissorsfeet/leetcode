@@ -57,5 +57,5 @@ func(this *LinkedList) Print() {
         items = append(items, fmt.Sprintf("%+v",cur.Val))
         cur = cur.Next
     }
-    fmt.Println(strings.Join(items, "-"))
+    fmt.Println(strings.Join(items, "->"))
 }
