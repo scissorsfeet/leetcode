@@ -5,7 +5,7 @@ import (
 )
 
 func TestLRUCache(t *testing.T) {
-	cache := NewLRUCache( 2 /* 缓存容量 */ );
+	cache := NewLRUCache( 2 /* 缓存容量 */ )
 
 	cache.Put(1, 1)
 	t.Log(&cache)
